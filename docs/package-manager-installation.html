@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<meta name="doc_version" content="2.2.28">
+<title>Package Manager Installation | UDUNITS-2 Documentation</title>
+<link rel="stylesheet" href="assets/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="assets/css/modern-business.css">
+<link rel="stylesheet" href="assets/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="assets/css/customstyles.css">
+<link rel="stylesheet" href="assets/css/theme-unidata.css">
+
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="assets/js/jquery.navgoco.min.js"></script>
+
+
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js"
+    integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="assets/js/toc.js"></script>
+<script src="assets/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+  <script>
+    $(document).ready(function () {
+      // Initialize navgoco with default options
+      $("#mysidebar").navgoco({
+        caretHtml: '',
+        accordion: true,
+        openClass: 'active', // open
+        save: false, // leave false or nav highlighting doesn't work right
+        cookie: {
+          name: 'navgoco',
+          expires: false,
+          path: '/'
+        },
+        slide: {
+          duration: 400,
+          easing: 'swing'
+        }
+      });
+
+      $("#collapseAll").click(function (e) {
+        e.preventDefault();
+        $("#mysidebar").navgoco('toggle', false);
+      });
+
+      $("#expandAll").click(function (e) {
+        e.preventDefault();
+        $("#mysidebar").navgoco('toggle', true);
+      });
+
+    });
+
+  </script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#tg-sb-link").click(function () {
+        $("#tg-sb-sidebar").toggle();
+        $("#tg-sb-content").toggleClass('col-md-9');
+        $("#tg-sb-content").toggleClass('col-md-12');
+        $("#tg-sb-icon").toggleClass('fa-toggle-on');
+        $("#tg-sb-icon").toggleClass('fa-toggle-off');
+      });
+    });
+  </script>
+  
+
+</head>
+
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html" style="padding-right:0px;">&nbsp;<span class="projectTitle">
+          UDUNITS-2 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+              
+              <li class="dropdown" id="vermenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Version 2.2.28<b class="caret"></b></a>
+                <ul class="dropdown-menu" id="docmenu">
+                  
+                  
+                  <li id="remove"><a href="">Menu Loading...</a></li>
+                  
+                  
+                </ul>
+              </li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://unidata.github.io/unidata-jekyll-theme/" target="_blank">Unidata Documentation Theme Info</a></li>
+                
+                
+                
+                <li><a href="https://github.com/unidata/unidata-jekyll-theme" target="_blank">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Example Sites<b class="caret"></b></a>
+                    <ul class="dropdown-menu" id="">
+                        
+                        
+                        <li id=""><a href="https://docs.unidata.ucar.edu/netcdf-java/current/userguide/" target="_blank">netcdf-Java</a></li>
+                        
+                        
+                        
+                        <li id=""><a href="https://docs.unidata.ucar.edu/tds/current/userguide/" target="_blank">THREDDS Data Server</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="https://github.com/Unidata/UDUNITS-2/issues/new?title=Documentation%20feedback">Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="assets/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            var pageLocation = window.location.href;
+                            var searchJson = pageLocation.substring(0, pageLocation.lastIndexOf('/') + 1) + "assets/search/search.json";
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: searchJson,
+                                searchResultTemplate: '<li><a href="{url}" title="Package Manager Installation">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div id="main">
+      <!-- Content Row -->
+      <div class="row" id="content">
+        
+        
+        <!-- Sidebar Column -->
+        <div class="col-md-3" id="tg-sb-sidebar">
+          
+
+<ul id="mysidebar" class="nav">
+  <!-- figure out title for sidebar
+     sidebar[0].product -> sidebar[0].title -> site.site_title -> empty
+       (sidebar yaml)       (sidebar yaml)     (_config.yaml)
+    -->
+  
+
+  <!-- figure out title for sidebar
+   sidebar[0].version -> site.docset_version -> empty
+     (sidebar yaml)        (_config.yaml)
+    -->
+  
+
+  
+
+  <!-- Both sidebar_title and sidebar_version defined -->
+  
+  <li class="sidebarTitle"><a href="index.html">UDUNITS-2 Documentation 2.2.28</a></li>
+  <!-- Only sidebar_title defined -->
+  
+
+  
+  
+  
+      
+  
+  <li>
+      <a title="Overview" href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction To UDUNITS-2" href="index.html">Introduction To UDUNITS-2</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Quick Start Guide" href="quick-start-guide.html">Quick Start Guide</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Installation" href="#">Installation</a>
+      <ul>
+          
+          
+          
+          <li><a title="Installation Overview" href="installation-overview.html">Installation Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li class="active"><a title="Package Manager Installation" href="package-manager-installation.html">Package Manager Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Building from Source" href="building-from-source.html">Building from Source</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Installation Via Conda" href="conda-installation.html">Installation Via Conda</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Installation Health Check" href="installation-health-check.html">Installation Health Check</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Installations" href="installation-troubleshooting.html">Troubleshooting Installations</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Unit Expression Language" href="#">Unit Expression Language</a>
+      <ul>
+          
+          
+          
+          <li><a title="Unit Expression Syntax" href="unit-expression-syntax.html">Unit Expression Syntax</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Expression Grammar" href="unit-expression-grammar.html">Unit Expression Grammar</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Expression Examples" href="unit-expression-examples.html">Unit Expression Examples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Unit Expressions" href="troubleshooting-unit-expressions.html">Troubleshooting Unit Expressions</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Units Database" href="#">Units Database</a>
+      <ul>
+          
+          
+          
+          <li><a title="Units Database Structure" href="units-database-structure.html">Units Database Structure</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Testing Unit Definitions" href="testing-unit-definitions.html">Testing Unit Definitions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Extending The Database" href="extending-database.html">Extending The Database</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Database Issues" href="troubleshooting-database-issues.html">Troubleshooting Database Issues</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="C API" href="#">C API</a>
+      <ul>
+          
+          
+          
+          <li><a title="API Overview" href="c-api-overview.html">API Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Data Structures" href="data-structures.html">Data Structures</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Systems API" href="unit-systems-api.html">Unit Systems API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Creation & Destruction API" href="unit-creation-destruction-api.html">Unit Creation & Destruction API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Parsing & Formatting API" href="unit-parsing-formatting-api.html">Unit Parsing & Formatting API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Arithmetic API" href="unit-arithmetic-api.html">Unit Arithmetic API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Conversion API" href="unit-conversion-api.html">Unit Conversion API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Query & Introspection API" href="unit-query-introspection-api.html">Unit Query & Introspection API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Name & Symbols Mapping API" href="unit-name-symbols-mapping-api.html">Unit Name & Symbols Mapping API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Time Utilities API" href="unit-time-utilities-api.html">Unit Time Utilities API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Extended Unit API" href="extended-unit-api.html">Extended Unit API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Error Handling API" href="error-handling-api.html">Error Handling API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting API Issues" href="troubleshooting-api-issues.html">Troubleshooting API Issues</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="UDUNITS-1 Legacy API" href="udunits-1-legacy-api.html">UDUNITS-1 Legacy API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="C API Function Index" href="c-api-function-index.html">C API Function Index</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Function man Pages" href="function-man-pages.html">Function man Pages</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="CLI Utility" href="#">CLI Utility</a>
+      <ul>
+          
+          
+          
+          <li><a title="udunits2 CLI Utility" href="udunits2-cli-utility.html">udunits2 CLI Utility</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Validation Workflows" href="validation-using-udunits2-cli.html">Validation Workflows</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="udunits2 Man Page" href="udunits2-man-page.html">udunits2 Man Page</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Interoperability & Standards" href="#">Interoperability & Standards</a>
+      <ul>
+          
+          
+          
+          <li><a title="CF Conventions & NetCDF" href="cf-conventions-netcdf.html">CF Conventions & NetCDF</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="UDUSI & Emerging Unit Standards" href="udusi-emerging-unit-standards.html">UDUSI & Emerging Unit Standards</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Interoperability Considerations" href="interoperability-considerations.html">Interoperability Considerations</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-md-6" id="tg-sb-content">
+          <div class="post-header">
+   <h1 class="post-title-main">Package Manager Installation</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+   <!--
+  If breadcrumbs explicitly set in the front matter of the markdown source, use it.
+  -->
+
+
+
+
+
+
+<div id="breadcrumbs">
+  
+  <a href="index.html" class="bcStart">UDUNITS-2 Documentation</a>
+  
+  
+  <span class="bcEnd">Package Manager Installation</span>
+  
+  
+</div>
+
+   <p>This page describes installing UDUNITS-2 using <strong>distribution-provided system package managers</strong> on Unix-like platforms.</p>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 
+Package-manager installations are provided and maintained by Linux distributions and macOS package ecosystems. They are <strong>not produced or versioned directly by the <a href="https://github.com/Unidata/UDUNITS-2">UDUNITS-2 upstream</a> project</strong>.
+</div>
+
+<h2 id="when-should-you-use-a-package-manager">When Should You Use a Package Manager?</h2>
+
+<p>Using a system package manager is usually the simplest and most reliable way to
+install UDUNITS-2. Consider this approach when:</p>
+
+<ul>
+  <li>You want the <strong>easiest installation method</strong> with minimal configuration.</li>
+  <li>You prefer the package manager to <strong>handle dependencies automatically</strong>.</li>
+  <li>You want UDUNITS-2 installed in <strong>standard system locations</strong>.</li>
+  <li>You want <strong>updates and security patches</strong> managed by the operating system.</li>
+  <li>You are installing UDUNITS-2 on a <strong>developer workstation or server</strong> where the
+distribution’s maintained packages are sufficient.</li>
+</ul>
+
+<p>A package manager installation is typically the best choice unless you need
+custom build options, a nonstandard installation prefix, or tighter control
+over the build environment.</p>
+
+<h2 id="supported-platforms">Supported Platforms</h2>
+
+<p>UDUNITS-2 is widely available on <strong>64-bit Unix-like architectures</strong> such as <code class="language-plaintext highlighter-rouge">x86_64</code> and <code class="language-plaintext highlighter-rouge">aarch64</code> with a POSIX environment.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linux (most distributions)</td>
+      <td>✅ Supported</td>
+      <td>Available via distro package managers</td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>✅ Supported</td>
+      <td>Via Homebrew or MacPorts</td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>⚠️ Limited</td>
+      <td>No native <code class="language-plaintext highlighter-rouge">winget</code> package</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 
+There is <strong>no native Windows package-manager support</strong> for UDUNITS-2 via <code class="language-plaintext highlighter-rouge">winget</code>.
+For most Windows users, <a href="building-from-source.html">building from source</a> or using <a href="installing-via-conda.html">Conda-based</a> workflows are the simplest approach.
+</div>
+
+<h2 id="runtime-vs-development-packages">Runtime Vs Development Packages</h2>
+
+<p>Most distributions split UDUNITS-2 into <strong>two categories of packages</strong>:</p>
+
+<ul>
+  <li><strong>Runtime packages</strong> – required to <em>run</em> the <code class="language-plaintext highlighter-rouge">udunits2</code> utility or applications that already link to it</li>
+  <li><strong>Development packages</strong> – required to <em>build software</em> that links against UDUNITS-2</li>
+</ul>
+
+<h3 id="when-do-you-need-development-packages">When Do You Need Development Packages?</h3>
+
+<p>You need development packages if you are:</p>
+
+<ul>
+  <li>Compiling C or C++ applications</li>
+  <li>Building Python, R, or other language bindings from source</li>
+  <li>Linking UDUNITS-2 into another library (e.g., NetCDF builds)</li>
+</ul>
+
+<p>If you only run software that already depends on UDUNITS-2, <strong>runtime packages are sufficient</strong>.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<h3 id="core-runtime-dependencies">Core Runtime Dependencies</h3>
+
+<p>UDUNITS-2 depends on:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Expat XML parser</td>
+      <td>Parses the units database (<code class="language-plaintext highlighter-rouge">udunits2.xml</code>)</td>
+    </tr>
+    <tr>
+      <td>Standard C library</td>
+      <td>System-provided (<code class="language-plaintext highlighter-rouge">glibc</code> on Linux, <code class="language-plaintext highlighter-rouge">libc</code> on macOS)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> 
+Expat is almost always installed automatically as a dependency when installing UDUNITS-2.</div>
+
+<h3 id="compilers-development-use-only">Compilers (Development Use Only)</h3>
+
+<p>To build software against UDUNITS-2, you need a C compiler:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">gcc</code> or <code class="language-plaintext highlighter-rouge">clang</code></li>
+  <li>Must support <strong>ISO C99 or later</strong></li>
+</ul>
+
+<p>For C++ projects, compile your application with a C++ compiler (<code class="language-plaintext highlighter-rouge">g++</code>, <code class="language-plaintext highlighter-rouge">clang++</code>) while linking against the C-based UDUNITS-2 library.</p>
+
+<h2 id="udunits-2-package-names-by-distribution">UDUNITS-2 Package Names By Distribution</h2>
+
+<p>Package names and layouts vary by distribution. The table below lists <strong>common and typical names</strong>, but exact availability depends on distro version and enabled repositories.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>Runtime Package(s)</th>
+      <th>Development Package(s)</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>RHEL / Rocky / Alma / CentOS</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-devel</code></td>
+      <td>May require EPEL on older releases</td>
+    </tr>
+    <tr>
+      <td>Fedora</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-devel</code></td>
+      <td>Standard Fedora repos</td>
+    </tr>
+    <tr>
+      <td>Debian / Ubuntu</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits-bin</code>, <code class="language-plaintext highlighter-rouge">libudunits2-0</code></td>
+      <td><code class="language-plaintext highlighter-rouge">libudunits2-dev</code></td>
+      <td>Packages may be in <em>universe</em></td>
+    </tr>
+    <tr>
+      <td>SUSE / openSUSE</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-devel</code></td>
+      <td>RPM-based naming</td>
+    </tr>
+    <tr>
+      <td>Arch Linux</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits</code></td>
+      <td>(included)</td>
+      <td>Headers included in main package</td>
+    </tr>
+    <tr>
+      <td>macOS (Homebrew)</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits</code></td>
+      <td>(included)</td>
+      <td>Runtime and headers together</td>
+    </tr>
+    <tr>
+      <td>macOS (MacPorts)</td>
+      <td><code class="language-plaintext highlighter-rouge">udunits2</code></td>
+      <td>(included)</td>
+      <td>Unified package</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> 
+If a package name differs, use your package manager to search.  E.g.: <code class="language-plaintext highlighter-rouge">apt search udunits</code> or <code class="language-plaintext highlighter-rouge">dnf search udunits</code>
+</div>
+
+<h2 id="example-installation-commands">Example Installation Commands</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Just Run <code class="language-plaintext highlighter-rouge">udunits2</code></th>
+      <th>Build Against UDUNITS-2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ubuntu / Debian</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo apt install udunits-bin</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo apt install libudunits2-dev</code></td>
+    </tr>
+    <tr>
+      <td>Fedora</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo dnf install udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo dnf install udunits2-devel</code></td>
+    </tr>
+    <tr>
+      <td>RHEL / Rocky / Alma</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo dnf install udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo dnf install udunits2-devel</code></td>
+    </tr>
+    <tr>
+      <td>SUSE / openSUSE</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo zypper install udunits2</code></td>
+      <td><code class="language-plaintext highlighter-rouge">sudo zypper install udunits2-devel</code></td>
+    </tr>
+    <tr>
+      <td>Arch Linux</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo pacman -S udunits</code></td>
+      <td><em>(included)</em></td>
+    </tr>
+    <tr>
+      <td>macOS (Homebrew)</td>
+      <td><code class="language-plaintext highlighter-rouge">brew install udunits</code></td>
+      <td><em>(included)</em></td>
+    </tr>
+    <tr>
+      <td>macOS (MacPorts)</td>
+      <td><code class="language-plaintext highlighter-rouge">sudo port install udunits2</code></td>
+      <td><em>(included)</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="files-installed">Files Installed</h2>
+
+<p>A typical package manager installation of UDUNITS-2 provides:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2</code></td>
+      <td>Command-line utility</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">libudunits2</code></td>
+      <td>Shared library (<code class="language-plaintext highlighter-rouge">.so</code> / <code class="language-plaintext highlighter-rouge">.dylib</code>)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2.h</code></td>
+      <td>C header (development packages only)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2.xml</code></td>
+      <td>Units database</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Locations follow distribution filesystem policies and may differ across systems.</p>
+
+<h2 id="environment-variables">Environment Variables</h2>
+
+<p>When installed via a package manager, <strong>manual environment configuration is usually unnecessary</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Typical Use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LD_LIBRARY_PATH</code></td>
+      <td>Rarely needed; avoid overriding system paths</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UDUNITS2_XML_PATH</code></td>
+      <td>Only set when using a custom XML database</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert alert-danger" role="alert"><i class="fa fa-exclamation-circle"></i> <b>Warning:</b> 
+Overriding these variables unnecessarily is a common cause of runtime errors.
+</div>
+
+<h2 id="verifying-installation">Verifying Installation</h2>
+
+<p>After installing UDUNITS-2, verify that the installation is working before building dependent software.</p>
+
+<p>A correct installation requires the following components to be discoverable:</p>
+
+<ul>
+  <li>the <code class="language-plaintext highlighter-rouge">udunits2</code> executable</li>
+  <li>the development headers (<code class="language-plaintext highlighter-rouge">udunits2.h</code>)</li>
+  <li>the UDUNITS-2 library (<code class="language-plaintext highlighter-rouge">libudunits2</code>)</li>
+  <li>the units database (<code class="language-plaintext highlighter-rouge">udunits2.xml</code>)</li>
+</ul>
+
+<p>The <a href="installation-health-check.html">Installation Health Check</a> guide provides commands and scripts that confirm these components are installed and accessible. It can quickly detect common issues such as missing headers, missing libraries, incorrect include or library paths, or a misconfigured units database.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>Most installation issues when installing <strong>UDUNITS-2 using system package managers</strong> fall into a few common categories.</p>
+
+<p>Examples of package managers include <strong>apt</strong>, <strong>dnf/yum</strong>, <strong>Homebrew</strong>, and <strong>MacPorts</strong>.</p>
+
+<p>Before using the troubleshooting tables below, run the checks in the <a href="installation-health-check.html">UDUNITS-2 Installation Health Check</a> to verify that the UDUNITS-2 executable, headers, libraries, and units database are correctly installed.</p>
+
+<h3 id="development-headers-missing">Development Headers Missing</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Cause</th>
+      <th>Diagnosis</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2.h: No such file or directory</code></td>
+      <td>Development headers not installed</td>
+      <td>Check installed packages</td>
+      <td>Install development package (<code class="language-plaintext highlighter-rouge">libudunits2-dev</code>, <code class="language-plaintext highlighter-rouge">udunits2-devel</code>, etc.)</td>
+    </tr>
+    <tr>
+      <td>Python/R packages fail detecting UDUNITS-2</td>
+      <td>Runtime package installed but headers missing</td>
+      <td>Inspect build logs for <code class="language-plaintext highlighter-rouge">udunits2.h</code> errors</td>
+      <td>Install the UDUNITS-2 development package</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="package-metadata-issues">Package Metadata Issues</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Cause</th>
+      <th>Diagnosis</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Package 'udunits2' not found</code> from <code class="language-plaintext highlighter-rouge">pkg-config</code></td>
+      <td>pkg-config metadata missing</td>
+      <td>Run <code class="language-plaintext highlighter-rouge">pkg-config --list-all | grep udunits</code></td>
+      <td>Install development package containing <code class="language-plaintext highlighter-rouge">udunits2.pc</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="library-linking-issues">Library Linking Issues</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Cause</th>
+      <th>Diagnosis</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ld: cannot find -ludunits2</code></td>
+      <td>Linker cannot find the UDUNITS-2 library</td>
+      <td>Run <code class="language-plaintext highlighter-rouge">pkg-config --libs udunits2</code></td>
+      <td>Install development package or add correct <code class="language-plaintext highlighter-rouge">-L</code> path</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">undefined reference to ut_*</code> functions</td>
+      <td>Program not linking against UDUNITS-2</td>
+      <td>Inspect compile command</td>
+      <td>Add <code class="language-plaintext highlighter-rouge">-ludunits2</code> to linker flags</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="runtime-issues">Runtime Issues</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Cause</th>
+      <th>Diagnosis</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Runtime error loading <code class="language-plaintext highlighter-rouge">libudunits2.so</code> / <code class="language-plaintext highlighter-rouge">.dylib</code></td>
+      <td>Dynamic linker cannot find library</td>
+      <td>Run <code class="language-plaintext highlighter-rouge">ldd program</code> or <code class="language-plaintext highlighter-rouge">otool -L program</code></td>
+      <td>Update linker cache (<code class="language-plaintext highlighter-rouge">ldconfig</code>) or adjust library paths</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Couldn't open units database</code></td>
+      <td>XML database path overridden or missing</td>
+      <td>Check <code class="language-plaintext highlighter-rouge">echo $UDUNITS2_XML_PATH</code></td>
+      <td>Unset variable or reinstall package</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="environment-conflicts">Environment Conflicts</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symptom</th>
+      <th>Cause</th>
+      <th>Diagnosis</th>
+      <th>Fix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Software builds but behaves unexpectedly</td>
+      <td>Multiple UDUNITS-2 installations present</td>
+      <td>Run <code class="language-plaintext highlighter-rouge">which udunits2</code> and inspect linked libraries</td>
+      <td>Remove duplicate installs or ensure consistent include/library paths</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<ul>
+  <li>Use <strong>one installation method</strong> (package manager <em>or</em> source build)</li>
+  <li>Avoid manual file deletion in system paths</li>
+  <li><a href="#verifying-installation">Verify installation</a> immediately after install is complete</li>
+  <li>Keep packages updated using your package manager</li>
+</ul>
+
+<h2 id="distribution-specific-callouts">Distribution-Specific Callouts</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Platform</th>
+      <th>Repository / Availability Notes</th>
+      <th>Package Naming &amp; Layout</th>
+      <th>Additional Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Debian / Ubuntu</strong></td>
+      <td>Packages may reside in the <strong><code class="language-plaintext highlighter-rouge">universe</code></strong> repository. Enable if needed:<br /><code class="language-plaintext highlighter-rouge">sudo add-apt-repository universe</code><br /><code class="language-plaintext highlighter-rouge">sudo apt update</code></td>
+      <td>Runtime utilities and libraries may be split across <code class="language-plaintext highlighter-rouge">udunits-bin</code> and <code class="language-plaintext highlighter-rouge">libudunits2-0</code>.<br />Development headers are provided by <code class="language-plaintext highlighter-rouge">libudunits2-dev</code></td>
+      <td>Strict separation of runtime and development packages</td>
+    </tr>
+    <tr>
+      <td><strong>RHEL / Rocky / Alma / CentOS</strong></td>
+      <td>On older releases, UDUNITS-2 may be provided by <strong>EPEL</strong> rather than base repositories.<br />Enable if needed:<br /><code class="language-plaintext highlighter-rouge">sudo dnf install epel-release</code></td>
+      <td>Package naming consistently uses <code class="language-plaintext highlighter-rouge">udunits2</code> and <code class="language-plaintext highlighter-rouge">udunits2-devel</code></td>
+      <td>Common on long-term support releases</td>
+    </tr>
+    <tr>
+      <td><strong>Fedora</strong></td>
+      <td>Available in standard Fedora repositories</td>
+      <td>Runtime and development packages follow standard RPM conventions (<code class="language-plaintext highlighter-rouge">udunits2</code>, <code class="language-plaintext highlighter-rouge">udunits2-devel</code>)</td>
+      <td>No special repository configuration required</td>
+    </tr>
+    <tr>
+      <td><strong>SUSE / openSUSE</strong></td>
+      <td>Available in standard repositories</td>
+      <td>Uses RPM-style <code class="language-plaintext highlighter-rouge">*-devel</code> naming.<br />Libraries and headers are cleanly separated</td>
+      <td>Install both runtime and <code class="language-plaintext highlighter-rouge">udunits2-devel</code> when building software</td>
+    </tr>
+    <tr>
+      <td><strong>Arch Linux</strong></td>
+      <td>Available in standard repositories</td>
+      <td>The <code class="language-plaintext highlighter-rouge">udunits</code> package includes runtime libraries, headers, and the XML database</td>
+      <td>No separate development package is required</td>
+    </tr>
+    <tr>
+      <td><strong>macOS (Homebrew)</strong></td>
+      <td>Installed via Homebrew</td>
+      <td>Headers and libraries are installed together with <code class="language-plaintext highlighter-rouge">brew install udunits</code></td>
+      <td>Apple Silicon installs under <code class="language-plaintext highlighter-rouge">/opt/homebrew</code>, Intel under <code class="language-plaintext highlighter-rouge">/usr/local</code>.<br />Mixing Homebrew and system compilers generally works</td>
+    </tr>
+    <tr>
+      <td><strong>macOS (MacPorts)</strong></td>
+      <td>Installed via MacPorts</td>
+      <td>Unified package installed under <code class="language-plaintext highlighter-rouge">/opt/local</code></td>
+      <td>Avoid mixing MacPorts libraries with Homebrew or system toolchains</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="netcdf--udunits-2-integration">NetCDF + UDUNITS-2 Integration</h2>
+
+<p>Most Linux and macOS package managers install <strong>UDUNITS-2 automatically as a dependency of NetCDF</strong>, so installing NetCDF typically provides the required libraries along with the <code class="language-plaintext highlighter-rouge">udunits2.xml</code> units database.</p>
+
+<p>If you plan to <strong>build software against NetCDF</strong>, you should also install the UDUNITS-2 development headers (for example, <code class="language-plaintext highlighter-rouge">libudunits2-dev</code> on Debian/Ubuntu or <code class="language-plaintext highlighter-rouge">udunits2-devel</code> on Fedora/RHEL).</p>
+
+<p>You can verify that NetCDF was built with UDUNITS-2 support by running <code class="language-plaintext highlighter-rouge">nc-config --has-udunits</code> (which should return <code class="language-plaintext highlighter-rouge">yes</code>) or by inspecting a file with <code class="language-plaintext highlighter-rouge">ncdump -h some_file.nc</code>.</p>
+
+<p>As a general rule, install NetCDF and UDUNITS-2 from the same package repository and avoid mixing system packages with manually compiled libraries.</p>
+
+<h2 id="language-bindings-notes">Language Bindings Notes</h2>
+
+<p>UDUNITS-2 issues are most often encountered <strong>indirectly</strong>, when installing language
+bindings or higher-level libraries—most commonly <strong>R</strong>, <strong>Python</strong>, and
+<strong>NetCDF-based software</strong>. In most cases, failures are rarely caused by
+UDUNITS-2 itself and are typically due to <strong>missing development packages</strong>.</p>
+
+<p>When using <strong>system Python</strong> or <strong>system R</strong>, ensure that all required
+development headers are installed <em>before</em> installing language bindings or
+building dependent software.</p>
+
+<p>Missing development headers for <strong>UDUNITS-2</strong>, <strong>Expat</strong>, or <strong>NetCDF</strong> account
+for a large fraction of reported language-binding installation failures.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+
+        </div>
+        
+        <div class="col-md-3" id="tg-sb-sidebar-toc">
+          
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: '.container h2, .container h3, .container h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc" class="fa fa-list-ul"></div>
+
+        </div>
+        
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /#main -->
+  </div>
+  <div id="footer">
+       <footer class="unidata">
+
+    <div id="content-footer">
+     <h2>NSF Unidata Support</h2>
+     <ul>
+      <li>NSF Unidata provides free technical support to our community members. For more information, please see our <a href="https://support.unidata.ucar.edu/conditions-of-support/">Conditions Of Support</a>.</li>
+      <li>Visit: <a href="https://support.unidata.ucar.edu/">NSF Unidata Support </a></li>
+      <li>Email: <a href="mailto:support@unidata.ucar.edu">support@unidata.ucar.edu</a></li>
+      <li>Report a security issue/vulnerability: <a href="mailto:security@unidata.ucar.edu">security@unidata.ucar.edu</a></li>
+     </ul>
+    </div> <!-- /#content-footer -->
+
+    <div id="legal-footer">
+     <ul>
+      <li>&#169; NSF Unidata</li>
+      <li><a href="https://support.unidata.ucar.edu/conditions-of-support">Conditions of Support</a></li>
+      <li><a href="https://www.unidata.ucar.edu/legal/participation.html">Participation Policy</a></li>
+      <li><a href="https://www.ucar.edu/privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://www.ucar.edu/terms-of-use">Terms of Use</a></li>
+      <li><a href="https://www.ucar.edu/accessibility">Accessibility</a></li>
+     </ul>
+    </div> <!-- /#legal-footer -->
+
+    <div id="nsf-footer">
+     <a href="https://www.nsf.gov" class="logo">
+      <img src="assets/images/nsf_logo_transparent.png" alt="U.S. National Science Foundation"/>
+     </a>
+     <div>
+      NSF Unidata is a member of the
+      <a href="https://www.ucp.ucar.edu/">UCAR Community Programs</a>,
+      managed by the
+      <a href="https://www.ucar.edu">University Corporation for Atmospheric Research</a>,
+      and funded by the
+      <a href="https://www.nsf.gov">U.S. National Science Foundation</a>.
+     </div>
+    </div> <!-- /#nsf-footer -->
+
+   </footer>
+  </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-92978945-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+</html>
