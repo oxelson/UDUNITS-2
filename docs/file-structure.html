@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<meta name="doc_version" content="2.2.28">
+<title>Database File Structure | UDUNITS-2 Documentation</title>
+<link rel="stylesheet" href="assets/css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="assets/css/modern-business.css">
+<link rel="stylesheet" href="assets/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="assets/css/customstyles.css">
+<link rel="stylesheet" href="assets/css/theme-unidata.css">
+
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+    integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="assets/js/jquery.navgoco.min.js"></script>
+
+
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js"
+    integrity="sha512-zPB79j2C+3sFS9zcA3vg/z6bVKzJVEyu9pY5w89akQRys76zpAT2t6S3wZKla3QQ14O5l/Yt0RUQ/DHXx82Y5g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+<script src="assets/js/toc.js"></script>
+<script src="assets/js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="assets/images/favicon.ico">
+
+  <script>
+    $(document).ready(function () {
+      // Initialize navgoco with default options
+      $("#mysidebar").navgoco({
+        caretHtml: '',
+        accordion: true,
+        openClass: 'active', // open
+        save: false, // leave false or nav highlighting doesn't work right
+        cookie: {
+          name: 'navgoco',
+          expires: false,
+          path: '/'
+        },
+        slide: {
+          duration: 400,
+          easing: 'swing'
+        }
+      });
+
+      $("#collapseAll").click(function (e) {
+        e.preventDefault();
+        $("#mysidebar").navgoco('toggle', false);
+      });
+
+      $("#expandAll").click(function (e) {
+        e.preventDefault();
+        $("#mysidebar").navgoco('toggle', true);
+      });
+
+    });
+
+  </script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#tg-sb-link").click(function () {
+        $("#tg-sb-sidebar").toggle();
+        $("#tg-sb-content").toggleClass('col-md-9');
+        $("#tg-sb-content").toggleClass('col-md-12');
+        $("#tg-sb-icon").toggleClass('fa-toggle-on');
+        $("#tg-sb-icon").toggleClass('fa-toggle-off');
+      });
+    });
+  </script>
+  
+
+</head>
+
+<body>
+  <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html" style="padding-right:0px;">&nbsp;<span class="projectTitle">
+          UDUNITS-2 Documentation</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+              
+              <li class="dropdown" id="vermenu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Version 2.2.28<b class="caret"></b></a>
+                <ul class="dropdown-menu" id="docmenu">
+                  
+                  
+                  <li id="remove"><a href="">Menu Loading...</a></li>
+                  
+                  
+                </ul>
+              </li>
+              
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://unidata.github.io/unidata-jekyll-theme/" target="_blank">Unidata Documentation Theme Info</a></li>
+                
+                
+                
+                <li><a href="https://github.com/unidata/unidata-jekyll-theme" target="_blank">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Example Sites<b class="caret"></b></a>
+                    <ul class="dropdown-menu" id="">
+                        
+                        
+                        <li id=""><a href="https://docs.unidata.ucar.edu/netcdf-java/current/userguide/" target="_blank">netcdf-Java</a></li>
+                        
+                        
+                        
+                        <li id=""><a href="https://docs.unidata.ucar.edu/tds/current/userguide/" target="_blank">THREDDS Data Server</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="https://github.com/Unidata/UDUNITS-2/issues/new?title=Documentation%20feedback">Feedback</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="assets/js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            var pageLocation = window.location.href;
+                            var searchJson = pageLocation.substring(0, pageLocation.lastIndexOf('/') + 1) + "assets/search/search.json";
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: searchJson,
+                                searchResultTemplate: '<li><a href="{url}" title="Database File Structure">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div id="main">
+      <!-- Content Row -->
+      <div class="row" id="content">
+        
+        
+        <!-- Sidebar Column -->
+        <div class="col-md-3" id="tg-sb-sidebar">
+          
+
+<ul id="mysidebar" class="nav">
+  <!-- figure out title for sidebar
+     sidebar[0].product -> sidebar[0].title -> site.site_title -> empty
+       (sidebar yaml)       (sidebar yaml)     (_config.yaml)
+    -->
+  
+
+  <!-- figure out title for sidebar
+   sidebar[0].version -> site.docset_version -> empty
+     (sidebar yaml)        (_config.yaml)
+    -->
+  
+
+  
+
+  <!-- Both sidebar_title and sidebar_version defined -->
+  
+  <li class="sidebarTitle"><a href="index.html">UDUNITS-2 Documentation 2.2.28</a></li>
+  <!-- Only sidebar_title defined -->
+  
+
+  
+  
+  
+      
+  
+  <li>
+      <a title="Overview" href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction To UDUNITS-2" href="index.html">Introduction To UDUNITS-2</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Quick Start Guide" href="quick-start-guide.html">Quick Start Guide</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Installation" href="#">Installation</a>
+      <ul>
+          
+          
+          
+          <li><a title="Installation Overview" href="installation-overview.html">Installation Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Package Manager Installation" href="package-manager-installation.html">Package Manager Installation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Building from Source" href="building-from-source.html">Building from Source</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Installation Via Conda" href="conda-installation.html">Installation Via Conda</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Installation Health Check" href="installation-health-check.html">Installation Health Check</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Installations" href="installation-troubleshooting.html">Troubleshooting Installations</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Unit Expression Language" href="#">Unit Expression Language</a>
+      <ul>
+          
+          
+          
+          <li><a title="Unit Expression Syntax" href="unit-expression-syntax.html">Unit Expression Syntax</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Expression Grammar" href="unit-expression-grammar.html">Unit Expression Grammar</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Expression Examples" href="unit-expression-examples.html">Unit Expression Examples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Unit Expressions" href="troubleshooting-unit-expressions.html">Troubleshooting Unit Expressions</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Units Database" href="#">Units Database</a>
+      <ul>
+          
+          
+          
+          <li><a title="Units Database Structure" href="units-database-structure.html">Units Database Structure</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Testing Unit Definitions" href="testing-unit-definitions.html">Testing Unit Definitions</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Extending The Database" href="extending-database.html">Extending The Database</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting Database Issues" href="troubleshooting-database-issues.html">Troubleshooting Database Issues</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="C API" href="#">C API</a>
+      <ul>
+          
+          
+          
+          <li><a title="API Overview" href="c-api-overview.html">API Overview</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Data Structures" href="data-structures.html">Data Structures</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Systems API" href="unit-systems-api.html">Unit Systems API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Creation & Destruction API" href="unit-creation-destruction-api.html">Unit Creation & Destruction API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Parsing & Formatting API" href="unit-parsing-formatting-api.html">Unit Parsing & Formatting API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Arithmetic API" href="unit-arithmetic-api.html">Unit Arithmetic API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Conversion API" href="unit-conversion-api.html">Unit Conversion API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Query & Introspection API" href="unit-query-introspection-api.html">Unit Query & Introspection API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Name & Symbols Mapping API" href="unit-name-symbols-mapping-api.html">Unit Name & Symbols Mapping API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Unit Time Utilities API" href="unit-time-utilities-api.html">Unit Time Utilities API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Extended Unit API" href="extended-unit-api.html">Extended Unit API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Error Handling API" href="error-handling-api.html">Error Handling API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Troubleshooting API Issues" href="troubleshooting-api-issues.html">Troubleshooting API Issues</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="UDUNITS-1 Legacy API" href="udunits-1-legacy-api.html">UDUNITS-1 Legacy API</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="C API Function Index" href="c-api-function-index.html">C API Function Index</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Function man Pages" href="function-man-pages.html">Function man Pages</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="CLI Utility" href="#">CLI Utility</a>
+      <ul>
+          
+          
+          
+          <li><a title="udunits2 CLI Utility" href="udunits2-cli-utility.html">udunits2 CLI Utility</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Validation Workflows" href="validation-using-udunits2-cli.html">Validation Workflows</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="udunits2 Man Page" href="udunits2-man-page.html">udunits2 Man Page</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a title="Interoperability & Standards" href="#">Interoperability & Standards</a>
+      <ul>
+          
+          
+          
+          <li><a title="CF Conventions & NetCDF" href="cf-conventions-netcdf.html">CF Conventions & NetCDF</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="UDUSI & Emerging Unit Standards" href="udusi-emerging-unit-standards.html">UDUSI & Emerging Unit Standards</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Interoperability Considerations" href="interoperability-considerations.html">Interoperability Considerations</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+        </div>
+
+        
+        
+
+        <!-- Content Column -->
+        <div class="col-md-6" id="tg-sb-content">
+          <div class="post-header">
+   <h1 class="post-title-main">Database File Structure</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+   <!--
+  If breadcrumbs explicitly set in the front matter of the markdown source, use it.
+  -->
+
+
+
+
+
+
+<div id="breadcrumbs">
+  
+  <a href="index.html" class="bcStart">UDUNITS-2 Documentation</a>
+  
+  
+  <span class="bcEnd">Database File Structure</span>
+  
+  
+</div>
+
+   <p>The UDUNITS-2 unit database is implemented as a collection of XML documents that together define the vocabulary of units, prefixes, and relationships used by the library. The database is designed to be both human-readable and machine-parseable, enabling extensibility while preserving strict dimensional consistency.</p>
+
+<p>Unlike earlier versions of UDUNITS that used a custom text format, UDUNITS-2 stores unit definitions in XML, allowing modular composition of unit systems through standardized elements and import relationships.</p>
+
+<p>The XML files are loaded by the library at runtime to construct an internal representation of units, prefixes, and dimensions used for parsing unit expressions and performing conversions.</p>
+
+<h2 id="31-xml-format">3.1 XML Format</h2>
+
+<h3 id="role-of-xml-in-defining-the-unit-database">Role of XML in Defining the Unit Database</h3>
+
+<p>The UDUNITS-2 database uses XML as a structured representation of unit definitions, prefixes, and dimensional relationships. XML provides:</p>
+
+<ul>
+  <li>A hierarchical format suitable for representing relationships between units</li>
+  <li>A standardized syntax that can be validated for structural correctness</li>
+  <li>Extensibility through modular file composition</li>
+  <li>Explicit encoding of unit semantics</li>
+</ul>
+
+<p>The root element of the database is <code class="language-plaintext highlighter-rouge">&lt;unit-system&gt;</code>, which aggregates unit definitions and organizes them into a coherent dimensional framework.</p>
+
+<p>Example root file:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;unit-system&gt;</span>
+    <span class="nt">&lt;import&gt;</span>udunits2-prefixes.xml<span class="nt">&lt;/import&gt;</span>
+    <span class="nt">&lt;import&gt;</span>udunits2-base.xml<span class="nt">&lt;/import&gt;</span>
+    <span class="nt">&lt;import&gt;</span>udunits2-derived.xml<span class="nt">&lt;/import&gt;</span>
+    <span class="nt">&lt;import&gt;</span>udunits2-accepted.xml<span class="nt">&lt;/import&gt;</span>
+    <span class="nt">&lt;import&gt;</span>udunits2-common.xml<span class="nt">&lt;/import&gt;</span>
+<span class="nt">&lt;/unit-system&gt;</span>
+</code></pre></div></div>
+
+<p>This structure demonstrates that the primary XML file acts as an entry point that assembles multiple component files via <code class="language-plaintext highlighter-rouge">&lt;import&gt;</code> elements.</p>
+
+<h3 id="schema-structure-and-key-elements">Schema Structure and Key Elements</h3>
+
+<p>The XML schema expresses unit definitions using structured elements that describe dimensional relationships, naming conventions, and conversion semantics.</p>
+
+<p>Key elements include:</p>
+
+<h4 id="unit"><code class="language-plaintext highlighter-rouge">&lt;unit&gt;</code></h4>
+
+<p>Defines an individual unit, including its dimensional basis and symbolic representation.</p>
+
+<p>Typical components:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">&lt;name&gt;</code> — canonical unit name</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;symbol&gt;</code> — abbreviated representation</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;definition&gt;</code> — semantic description of the unit</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;base/&gt;</code> — indicates an SI base unit</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;aliases&gt;</code> — alternate names for the unit</li>
+</ul>
+
+<p>Example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;unit&gt;</span>
+    <span class="nt">&lt;base/&gt;</span>
+    <span class="nt">&lt;name&gt;</span>
+        <span class="nt">&lt;singular&gt;</span>meter<span class="nt">&lt;/singular&gt;</span>
+    <span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;symbol&gt;</span>m<span class="nt">&lt;/symbol&gt;</span>
+<span class="nt">&lt;/unit&gt;</span>
+</code></pre></div></div>
+
+<p>SI base units are defined in <code class="language-plaintext highlighter-rouge">udunits2-base.xml</code>.</p>
+
+<h4 id="dimension"><code class="language-plaintext highlighter-rouge">&lt;dimension&gt;</code></h4>
+
+<p>Represents the dimensional composition of a unit in terms of base dimensions (e.g., length, mass, time).</p>
+
+<p>Dimensions allow the library to perform dimensional analysis to determine unit compatibility and construct conversion pathways.</p>
+
+<p>Examples of dimensional relationships include:</p>
+
+<ul>
+  <li>velocity = length / time</li>
+  <li>force = mass × length / time²</li>
+</ul>
+
+<h4 id="prefix"><code class="language-plaintext highlighter-rouge">&lt;prefix&gt;</code></h4>
+
+<p>Defines scaling prefixes that modify unit magnitude.</p>
+
+<p>Examples include:</p>
+
+<ul>
+  <li>kilo (10³)</li>
+  <li>milli (10⁻³)</li>
+  <li>micro (10⁻⁶)</li>
+</ul>
+
+<p>Prefixes are defined separately from units and applied generically across compatible base units.</p>
+
+<p>Prefix definitions reside in <code class="language-plaintext highlighter-rouge">udunits2-prefixes.xml</code>.</p>
+
+<h4 id="import"><code class="language-plaintext highlighter-rouge">&lt;import&gt;</code></h4>
+
+<p>Specifies inclusion of additional XML files into the unit system.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">&lt;import&gt;</code> mechanism enables modular database construction and allows custom extensions without modifying core definitions.</p>
+
+<p>Example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;import&gt;</span>udunits2-derived.xml<span class="nt">&lt;/import&gt;</span>
+</code></pre></div></div>
+
+<p>The root file imports multiple XML components that collectively define the full unit vocabulary.</p>
+
+<h4 id="alias"><code class="language-plaintext highlighter-rouge">&lt;alias&gt;</code></h4>
+
+<p>Defines alternate names or symbols for a unit, allowing multiple representations of equivalent concepts.</p>
+
+<p>Aliases improve interoperability with domain-specific conventions and legacy naming patterns.</p>
+
+<p>Example:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;aliases&gt;</span>
+    <span class="nt">&lt;name&gt;</span>
+        <span class="nt">&lt;singular&gt;</span>metre<span class="nt">&lt;/singular&gt;</span>
+    <span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;/aliases&gt;</span>
+</code></pre></div></div>
+
+<p>Aliases allow UDUNITS to recognize variant spellings and symbols while maintaining a single canonical definition.</p>
+
+<h3 id="validation-expectations">Validation Expectations</h3>
+
+<p>XML files must conform to the structural expectations of the UDUNITS parser:</p>
+
+<ul>
+  <li>Elements must be properly nested and well-formed XML</li>
+  <li>Units must define consistent dimensional relationships</li>
+  <li>Imported files must exist and be accessible at runtime</li>
+  <li>Definitions must not introduce conflicting dimensional mappings</li>
+</ul>
+
+<p>Errors in XML structure or dimensional consistency typically result in failures when initializing a <code class="language-plaintext highlighter-rouge">ut_system</code> object via the library.</p>
+
+<p>Because the XML database is loaded dynamically, validation errors generally occur during initialization rather than compile time.</p>
+
+<h2 id="32-modular-organization">3.2 Modular Organization</h2>
+
+<h3 id="separation-of-definitions-across-multiple-xml-files">Separation of Definitions Across Multiple XML Files</h3>
+
+<p>The UDUNITS database is intentionally divided into multiple XML files to improve maintainability and enable selective extension of the unit vocabulary.</p>
+
+<p>Core definitions are separated into logical groupings:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>File</td>
+      <td>Purpose</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-prefixes.xml</code></td>
+      <td>Defines scale prefixes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-base.xml</code></td>
+      <td>SI base units</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-derived.xml</code></td>
+      <td>Derived SI units</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-accepted.xml</code></td>
+      <td>Units accepted for use with SI</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2-common.xml</code></td>
+      <td>Common non-SI units</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">udunits2.xml</code></td>
+      <td>Root aggregation file</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The root file imports component definitions using <code class="language-plaintext highlighter-rouge">&lt;import&gt;</code> elements.</p>
+
+<h3 id="import-relationships-between-files">Import Relationships Between Files</h3>
+
+<p>The XML database follows a hierarchical import structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udunits2.xml
+│
+├── udunits2-prefixes.xml
+├── udunits2-base.xml
+├── udunits2-derived.xml
+├── udunits2-accepted.xml
+└── udunits2-common.xml
+</code></pre></div></div>
+
+<p>Each imported file contributes additional unit definitions that are merged into a single in-memory unit system.</p>
+
+<p>This modular approach allows:</p>
+
+<ul>
+  <li>domain-specific extensions</li>
+  <li>replacement or augmentation of definitions</li>
+  <li>separation of SI and non-SI units</li>
+  <li>independent maintenance of prefixes and units</li>
+</ul>
+
+<p>The import-based architecture also enables downstream projects to supply custom unit definitions without modifying the upstream distribution.</p>
+
+<h3 id="example-hierarchy">Example Hierarchy</h3>
+
+<p>Typical conceptual layering:</p>
+
+<h4 id="core-unit-definitions">Core unit definitions</h4>
+
+<p>Fundamental SI units:</p>
+
+<ul>
+  <li>meter</li>
+  <li>kilogram</li>
+  <li>second</li>
+  <li>kelvin</li>
+  <li>mole</li>
+  <li>ampere</li>
+  <li>candela</li>
+</ul>
+
+<p>Defined in:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udunits2-base.xml
+</code></pre></div></div>
+
+<h4 id="derived-units">Derived units</h4>
+
+<p>Units constructed from base dimensions:</p>
+
+<ul>
+  <li>newton</li>
+  <li>joule</li>
+  <li>pascal</li>
+  <li>watt</li>
+</ul>
+
+<p>Defined in:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udunits2-derived.xml
+</code></pre></div></div>
+
+<h4 id="domain-specific-extensions">Domain-specific extensions</h4>
+
+<p>Units commonly used in specific scientific domains:</p>
+
+<ul>
+  <li>astronomical units</li>
+  <li>climatology units</li>
+  <li>geophysical units</li>
+</ul>
+
+<p>Defined in:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udunits2-common.xml
+</code></pre></div></div>
+
+<h2 id="33-default-database-location">3.3 Default Database Location</h2>
+
+<h3 id="typical-installed-locations">Typical Installed Locations</h3>
+
+<p>After installation, the XML database is typically installed within the shared data directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>share/udunits/udunits2.xml
+</code></pre></div></div>
+
+<p>Applications locate this file automatically or through the environment variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UDUNITS2_XML_PATH
+</code></pre></div></div>
+
+<p>If the XML database is installed in a non-standard location, the environment variable may be required to allow the library to locate the unit definitions.</p>
+
+<h3 id="source-repository-locations">Source Repository Locations</h3>
+
+<p>Within the UDUNITS-2 source tree, XML database files are located in the <code class="language-plaintext highlighter-rouge">lib/</code> directory:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lib/udunits2.xml
+lib/udunits2-base.xml
+lib/udunits2-derived.xml
+lib/udunits2-prefixes.xml
+lib/udunits2-common.xml
+</code></pre></div></div>
+
+<p>The root XML file references component files via relative paths using <code class="language-plaintext highlighter-rouge">&lt;import&gt;</code> elements.</p>
+
+<p>Because the XML files are part of the source distribution, they can be inspected or modified prior to installation to customize supported units.</p>
+
+
+    <div class="tags">
+        
+    </div>
+
+
+
+
+</div>
+
+
+        </div>
+        
+        <div class="col-md-3" id="tg-sb-sidebar-toc">
+          
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: '.container h2, .container h3, .container h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc" class="fa fa-list-ul"></div>
+
+        </div>
+        
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /#main -->
+  </div>
+  <div id="footer">
+       <footer class="unidata">
+
+    <div id="content-footer">
+     <h2>NSF Unidata Support</h2>
+     <ul>
+      <li>NSF Unidata provides free technical support to our community members. For more information, please see our <a href="https://support.unidata.ucar.edu/conditions-of-support/">Conditions Of Support</a>.</li>
+      <li>Visit: <a href="https://support.unidata.ucar.edu/">NSF Unidata Support </a></li>
+      <li>Email: <a href="mailto:support@unidata.ucar.edu">support@unidata.ucar.edu</a></li>
+      <li>Report a security issue/vulnerability: <a href="mailto:security@unidata.ucar.edu">security@unidata.ucar.edu</a></li>
+     </ul>
+    </div> <!-- /#content-footer -->
+
+    <div id="legal-footer">
+     <ul>
+      <li>&#169; NSF Unidata</li>
+      <li><a href="https://support.unidata.ucar.edu/conditions-of-support">Conditions of Support</a></li>
+      <li><a href="https://www.unidata.ucar.edu/legal/participation.html">Participation Policy</a></li>
+      <li><a href="https://www.ucar.edu/privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://www.ucar.edu/terms-of-use">Terms of Use</a></li>
+      <li><a href="https://www.ucar.edu/accessibility">Accessibility</a></li>
+     </ul>
+    </div> <!-- /#legal-footer -->
+
+    <div id="nsf-footer">
+     <a href="https://www.nsf.gov" class="logo">
+      <img src="assets/images/nsf_logo_transparent.png" alt="U.S. National Science Foundation"/>
+     </a>
+     <div>
+      NSF Unidata is a member of the
+      <a href="https://www.ucp.ucar.edu/">UCAR Community Programs</a>,
+      managed by the
+      <a href="https://www.ucar.edu">University Corporation for Atmospheric Research</a>,
+      and funded by the
+      <a href="https://www.nsf.gov">U.S. National Science Foundation</a>.
+     </div>
+    </div> <!-- /#nsf-footer -->
+
+   </footer>
+  </div>
+
+</body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-92978945-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+</html>
